@@ -36,26 +36,26 @@ class TouchSpin extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TouchSpinState createState() => _TouchSpinState();
+  TouchSpinState createState() => TouchSpinState();
 }
 
-class _TouchSpinState extends State<TouchSpin> {
-  late num _value;
+class TouchSpinState extends State<TouchSpin> {
+  late num value;
 
   bool get minusBtnDisabled =>
-      _value <= widget.min ||
-      _value - widget.step < widget.min ||
+      value <= widget.min ||
+      value - widget.step < widget.min ||
       !widget.enabled;
 
   bool get addBtnDisabled =>
-      _value >= widget.max ||
-      _value + widget.step > widget.max ||
+      value >= widget.max ||
+      value + widget.step > widget.max ||
       !widget.enabled;
 
   @override
   void initState() {
     super.initState();
-    _value = widget.value;
+    value = widget.value;
   }
 
   @override
@@ -63,18 +63,18 @@ class _TouchSpinState extends State<TouchSpin> {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.value != widget.value) {
-      setState(() => _value = widget.value);
+      setState(() => value = widget.value);
       widget.onChanged?.call(widget.value);
     }
   }
 
-  Color? _spinButtonColor(bool btnDisabled) => btnDisabled
+  Color? spinButtonColor(bool btnDisabled) => btnDisabled
       ? widget.iconDisabledColor ?? Theme.of(context).disabledColor
       : widget.iconActiveColor ?? Theme.of(context).textTheme.button?.color;
 
-  void _adjustValue(num adjustment) {
-    num newVal = _value + adjustment;
-    setState(() => _value = newVal);
+  void adjustValue(num adjustment) {
+    num newVal = value + adjustment;
+    setState(() => value = newVal);
     widget.onChanged?.call(newVal);
   }
 
@@ -87,21 +87,21 @@ class _TouchSpinState extends State<TouchSpin> {
         IconButton(
           padding: widget.iconPadding,
           iconSize: widget.iconSize,
-          color: _spinButtonColor(minusBtnDisabled),
+          color: spinButtonColor(minusBtnDisabled),
           icon: widget.subtractIcon,
-          onPressed: minusBtnDisabled ? null : () => _adjustValue(-widget.step),
+          onPressed: minusBtnDisabled ? null : () => adjustValue(-widget.step),
         ),
         Text(
-          widget.displayFormat?.format(_value) ?? _value.toString(),
+          widget.displayFormat?.format(value) ?? value.toString(),
           style: widget.textStyle,
-          key: ValueKey(_value),
+          key: ValueKey(value),
         ),
         IconButton(
           padding: widget.iconPadding,
           iconSize: widget.iconSize,
-          color: _spinButtonColor(addBtnDisabled),
+          color: spinButtonColor(addBtnDisabled),
           icon: widget.addIcon,
-          onPressed: addBtnDisabled ? null : () => _adjustValue(widget.step),
+          onPressed: addBtnDisabled ? null : () => adjustValue(widget.step),
         ),
       ],
     );

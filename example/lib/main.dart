@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_touch_spin/flutter_touch_spin.dart';
 import 'package:intl/intl.dart';
+
+import 'package:flutter_touch_spin/flutter_touch_spin.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,10 +9,10 @@ class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   double value = 10;
 
   @override
