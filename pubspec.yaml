@@ -1,7 +1,8 @@
 name: flutter_touch_spin
 description: Simple number input spinner Widget for Flutter. Inspired by Bootstrap Touchspin
-version: 2.0.0
+version: 2.0.0+k1
 homepage: https://github.com/danvick/flutter_touch_spin
+publish_to: none
 
 environment:
   sdk: ">=2.18.2 <3.0.0"
@@ -9,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl:
-    git: https://github.com/dart-lang/intl.git
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1

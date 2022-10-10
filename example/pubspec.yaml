@@ -7,8 +7,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl:
-    git: https://github.com/dart-lang/intl.git
+  intl: ^0.17.0
   flutter_touch_spin:
     path: ../
 

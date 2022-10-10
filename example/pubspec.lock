@@ -66,16 +66,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "2.0.0"
+    version: "2.0.0+k1"
   intl:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "7639a1588d2b037230e0ace17ab761c05c91f259"
-      url: "https://github.com/dart-lang/intl.git"
-    source: git
-    version: "0.17.1-dev"
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   lints:
     dependency: transitive
     description:
